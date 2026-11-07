@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+  --cream: #f6f9ff;
+  --muted: #cfdcf5;
+  --blue: #7db4ff;
+  --sky: #a9d2ff;
+  --cyan: #6fe0ff;
+  --pink: #f4a9d6;
+  --lavender: #c3b4f5;
+  --night: #050b24;
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; min-height: 100%; background: var(--night); }
+body { min-width: 320px; min-height: 100vh; margin: 0; overflow-x: hidden; color: var(--cream); font-family: var(--sans); background: var(--night); }
+
+/* ---------- COSMOS ---------- */
+.cosmos, .scene { position: fixed; inset: 0; }
+.cosmos {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, transparent 36%, rgba(1,3,14,.8) 100%),
+    radial-gradient(ellipse at 50% 118%, rgba(74, 140, 255, .38), transparent 55%),
+    radial-gradient(ellipse at 85% 8%, rgba(120, 90, 230, .26), transparent 45%),
+    radial-gradient(ellipse at 10% 30%, rgba(30, 110, 230, .22), transparent 45%),
+    linear-gradient(170deg, #02051a 0%, #060f3d 40%, #0c1260 72%, #2a1a66 100%);
+}
+.aurora, .cosmos::before { position: absolute; inset: -20%; content: ""; pointer-events: none; filter: blur(55px); }
+.aurora {
+  background:
+    radial-gradient(ellipse 40% 22% at 30% 35%, rgba(60, 200, 255, .26), transparent 70%),
+    radial-gradient(ellipse 36% 20% at 72% 55%, rgba(110, 120, 255, .26), transparent 70%),
+    radial-gradient(ellipse 28% 16% at 55% 20%, rgba(244, 150, 214, .16), transparent 70%);
+  animation: aurora-drift 24s ease-in-out infinite alternate;
+}
+.cosmos::before {
+  background: radial-gradient(ellipse at 20% 70%, rgba(70, 150, 255, .24), transparent 36%), radial-gradient(ellipse at 80% 30%, rgba(190, 120, 240, .16), transparent 38%);
+  animation: aurora-drift 32s ease-in-out infinite alternate-reverse;
+}
+.cosmos::after { position: absolute; inset: 0; content: ""; pointer-events: none; filter: blur(28px); background: linear-gradient(to bottom right, transparent 36%, rgba(80,140,255,.16) 44%, rgba(200,180,255,.2) 50%, rgba(80,140,255,.14) 56%, transparent 64%); animation: breathe 12s ease-in-out infinite alternate; }
+.nebula { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .34; }
+.nebula-one { width: 52vw; height: 30vw; left: -16vw; top: 38%; background: #2a7bff; transform: rotate(-25deg); animation: breathe 14s ease-in-out infinite alternate; }
+.nebula-two { width: 46vw; height: 28vw; right: -16vw; top: 8%; background: #6a4be0; transform: rotate(28deg); animation: breathe 18s ease-in-out -6s infinite alternate; }
+.nebula-three { width: 34vw; height: 20vw; left: 34vw; bottom: -8vw; background: #e88ac8; opacity: .16; animation: breathe 16s ease-in-out -3s infinite alternate; }
+.horizon { position: absolute; left: -10%; right: -10%; bottom: -14vh; height: 34vh; border-radius: 50% 50% 0 0; background: radial-gradient(ellipse at 50% 0, rgba(130, 190, 255, .22), transparent 66%); pointer-events: none; }
+
+/* Estrellas: cada capa parpadea a su ritmo, así nunca se apagan todas a la vez */
+.stars { position: absolute; top: 0; left: 0; width: 1px; height: 1px; border-radius: 50%; pointer-events: none; }
+.stars-far  { box-shadow: 45.2vw 56.0vh #dfeaff,45.2vw 85.5vh #fff,18.5vw 51.2vh #bcd6ff,61.4vw 18.6vh #dfeaff,30.3vw 9.1vh #bcd6ff,63.4vw 59.5vh #dfeaff,96.5vw 65.4vh #bcd6ff,65.0vw 62.3vh #bcd6ff,6.3vw 3.6vh #fff,60.0vw 77.8vh #dfeaff,44.1vw 84.2vh #bcd6ff,23.4vw 29.4vh #fff,66.2vw 45.7vh #dfeaff,40.7vw 55.1vh #fff,70.8vw 31.5vh #fff,51.3vw 3.0vh #bcd6ff,76.6vw 40.0vh #dfeaff,38.7vw 95.8vh #bcd6ff,0.1vw 21.0vh #fff,47.0vw 98.0vh #dfeaff,42.0vw 56.6vh #fff,77.9vw 27.0vh #fff,31.1vw 1.5vh #dfeaff,75.8vw 11.8vh #fff,70.7vw 1.1vh #dfeaff,79.7vw 17.8vh #bcd6ff,18.8vw 50.9vh #bcd6ff,77.0vw 41.9vh #dfeaff,11.7vw 42.1vh #fff,0.0vw 86.4vh #bcd6ff,30.4vw 88.5vh #fff,18.7vw 99.6vh #bcd6ff,64.2vw 10.0vh #fff,21.3vw 25.8vh #bcd6ff,32.9vw 29.6vh #fff,7.4vw 20.9vh #bcd6ff,24.3vw 60.1vh #dfeaff,62.2vw 12.7vh #bcd6ff,48.4vw 57.5vh #dfeaff,18.3vw 15.4vh #fff,81.8vw 24.9vh #fff,15.8vw 62.9vh #bcd6ff,19.7vw 95.0vh #dfeaff,60.4vw 42.1vh #fff,10.9vw 51.2vh #dfeaff,23.8vw 70.5vh #dfeaff,42.1vw 90.5vh #dfeaff,29.3vw 17.5vh #bcd6ff,97.7vw 12.6vh #dfeaff,55.9vw 85.2vh #bcd6ff,7.4vw 21.2vh #fff,74.9vw 6.9vh #dfeaff,44.6vw 6.0vh #fff,28.2vw 53.1vh #fff,9.2vw 13.8vh #dfeaff,98.0vw 65.7vh #bcd6ff,52.2vw 94.7vh #bcd6ff,3.5vw 1.8vh #dfeaff,70.1vw 96.3vh #fff,59.8vw 7.5vh #fff,73.0vw 31.9vh #fff,7.5vw 54.6vh #bcd6ff,4.4vw 93.6vh #bcd6ff,70.4vw 79.3vh #dfeaff,35.2vw 68.5vh #fff,87.1vw 41.7vh #fff,86.3vw 57.3vh #bcd6ff,66.2vw 37.9vh #fff,60.9vw 8.0vh #bcd6ff,11.6vw 25.7vh #dfeaff,72.8vw 38.8vh #bcd6ff,69.4vw 45.8vh #dfeaff,83.8vw 8.4vh #bcd6ff,3.0vw 60.1vh #dfeaff,2.2vw 95.7vh #fff,49.7vw 61.5vh #dfeaff,25.6vw 1.1vh #dfeaff,14.3vw 61.2vh #bcd6ff,17.0vw 90.6vh #bcd6ff,93.0vw 49.8vh #fff,32.7vw 66.6vh #fff,63.4vw 80.4vh #fff,88.0vw 38.4vh #bcd6ff,92.1vw 21.0vh #fff,49.6vw 83.7vh #fff,71.1vw 95.0vh #dfeaff,82.2vw 11.3vh #dfeaff,27.5vw 21.4vh #dfeaff,38.3vw 52.0vh #bcd6ff,31.5vw 83.9vh #bcd6ff,45.2vw 7.5vh #fff,27.8vw 60.8vh #bcd6ff,70.9vw 57.1vh #dfeaff,64.9vw 56.4vh #bcd6ff,13.6vw 45.5vh #fff,76.9vw 26.6vh #fff,79.7vw 98.4vh #fff,44.6vw 63.0vh #bcd6ff,64.0vw 36.9vh #fff,68.4vw 19.9vh #dfeaff,25.6vw 71.4vh #dfeaff,53.5vw 3.6vh #fff,27.2vw 34.6vh #bcd6ff,94.7vw 50.0vh #fff,39.4vw 79.2vh #fff,8.7vw 93.3vh #bcd6ff,38.8vw 45.1vh #fff,62.6vw 91.0vh #dfeaff,55.0vw 65.3vh #bcd6ff,79.7vw 94.4vh #dfeaff,32.6vw 98.2vh #fff,72.2vw 81.8vh #bcd6ff,92.4vw 12.3vh #fff,90.0vw 98.0vh #dfeaff,53.7vw 79.1vh #dfeaff,26.2vw 71.8vh #fff,34.9vw 8.3vh #dfeaff,34.2vw 42.1vh #dfeaff,48.7vw 2.8vh #fff,42.9vw 3.5vh #bcd6ff,33.5vw 78.8vh #fff,47.1vw 100.0vh #bcd6ff,51.8vw 67.8vh #dfeaff,94.6vw 49.3vh #bcd6ff,8.6vw 22.1vh #bcd6ff,55.9vw 83.1vh #bcd6ff,63.9vw 52.3vh #bcd6ff,25.7vw 67.1vh #bcd6ff,20.8vw 85.1vh #bcd6ff,52.4vw 57.3vh #fff,41.1vw 11.4vh #fff,60.5vw 2.8vh #fff,51.6vw 40.1vh #bcd6ff,12.2vw 9.3vh #fff,6.6vw 53.9vh #dfeaff,92.1vw 80.0vh #dfeaff,26.9vw 47.3vh #fff,34.0vw 90.1vh #dfeaff,52.5vw 10.9vh #dfeaff,61.8vw 92.5vh #fff,70.2vw 97.7vh #fff,19.4vw 22.7vh #bcd6ff,28.4vw 72.4vh #fff,62.0vw 10.5vh #bcd6ff,58.2vw 85.2vh #bcd6ff,25.1vw 19.8vh #bcd6ff,87.9vw 2.3vh #bcd6ff,41.3vw 52.9vh #fff,53.8vw 86.4vh #bcd6ff,63.8vw 53.0vh #bcd6ff,61.2vw 85.7vh #fff,91.5vw 62.8vh #dfeaff,90.3vw 31.6vh #dfeaff,89.1vw 19.5vh #fff,88.8vw 13.4vh #fff,13.3vw 8.8vh #dfeaff,9.7vw 83.2vh #dfeaff,54.3vw 70.5vh #fff,40.3vw 68.5vh #fff,9.6vw 57.0vh #dfeaff,91.1vw 96.8vh #fff,70.5vw 63.5vh #dfeaff,50.3vw 68.6vh #fff,80.3vw 48.2vh #fff,3.7vw 55.2vh #bcd6ff,90.5vw 48.1vh #fff,18.5vw 20.4vh #fff,99.0vw 92.7vh #fff,58.0vw 13.4vh #bcd6ff,46.2vw 76.5vh #dfeaff,39.1vw 42.6vh #dfeaff,43.0vw 60.1vh #fff,63.4vw 4.1vh #fff,18.1vw 45.4vh #bcd6ff,37.0vw 92.2vh #bcd6ff,16.5vw 51.3vh #fff,32.4vw 8.5vh #bcd6ff,87.6vw 90.9vh #dfeaff,57.0vw 19.1vh #bcd6ff,98.3vw 80.5vh #dfeaff,28.0vw 11.6vh #bcd6ff,77.8vw 81.5vh #dfeaff,13.3vw 33.0vh #bcd6ff,69.5vw 76.7vh #fff,40.6vw 72.3vh #fff,79.7vw 30.2vh #fff,1.1vw 35.6vh #bcd6ff,90.3vw 5.0vh #dfeaff,94.5vw 66.6vh #dfeaff,21.6vw 40.6vh #fff,53.3vw 39.0vh #dfeaff,64.2vw 70.1vh #dfeaff,98.0vw 2.3vh #bcd6ff,10.8vw 23.7vh #dfeaff,40.2vw 5.0vh #fff,64.8vw 1.1vh #dfeaff,25.1vw 90.6vh #bcd6ff,54.0vw 41.6vh #bcd6ff,56.8vw 99.5vh #bcd6ff,44.4vw 64.5vh #bcd6ff,59.8vw 75.9vh #fff,38.6vw 93.9vh #dfeaff,47.2vw 16.9vh #dfeaff,54.2vw 59.7vh #dfeaff,94.5vw 42.1vh #bcd6ff,39.9vw 31.2vh #bcd6ff,28.6vw 65.5vh #bcd6ff,92.9vw 66.4vh #bcd6ff,29.6vw 1.4vh #fff,58.6vw 63.3vh #dfeaff,75.5vw 39.0vh #dfeaff,74.8vw 5.0vh #bcd6ff,94.4vw 7.4vh #fff,43.0vw 47.8vh #fff,4.5vw 9.8vh #bcd6ff,90.9vw 14.4vh #fff,60.4vw 11.5vh #bcd6ff,41.7vw 11.8vh #fff,35.7vw 15.5vh #dfeaff,44.3vw 66.8vh #dfeaff,60.1vw 64.0vh #bcd6ff,42.0vw 77.8vh #bcd6ff,81.5vw 13.7vh #dfeaff,73.4vw 23.8vh #fff,50.3vw 30.9vh #bcd6ff,62.5vw 35.9vh #dfeaff,61.0vw 72.5vh #bcd6ff,59.2vw 63.3vh #fff,19.0vw 24.9vh #bcd6ff,91.6vw 87.9vh #fff,62.8vw 0.9vh #dfeaff,42.5vw 62.3vh #fff,22.3vw 27.8vh #fff,91.3vw 16.1vh #fff,63.1vw 37.3vh #dfeaff,35.4vw 33.8vh #dfeaff,74.5vw 83.9vh #fff,80.2vw 44.7vh #bcd6ff,83.8vw 76.9vh #dfeaff,42.4vw 25.8vh #fff,36.9vw 65.4vh #bcd6ff,32.5vw 54.9vh #bcd6ff,82.6vw 18.4vh #bcd6ff,36.9vw 9.7vh #dfeaff,7.9vw 8.3vh #bcd6ff,56.8vw 81.5vh #dfeaff,29.9vw 77.6vh #fff,31.0vw 91.1vh #bcd6ff,8.2vw 30.4vh #bcd6ff,76.4vw 32.8vh #fff,21.9vw 65.7vh #dfeaff,36.6vw 11.7vh #bcd6ff,44.1vw 59.5vh #bcd6ff,91.3vw 43.8vh #dfeaff,45.8vw 22.1vh #bcd6ff,89.5vw 24.8vh #dfeaff,82.9vw 2.4vh #bcd6ff,39.6vw 38.8vh #fff,73.9vw 36.8vh #dfeaff,54.1vw 83.6vh #bcd6ff;  opacity: .55; animation: twinkle-a 5s ease-in-out infinite; }
+.stars-mid  { box-shadow: 38.2vw 91.0vh #fff,80.4vw 68.3vh #a9c8ff,30.9vw 36.0vh #fff,15.0vw 19.2vh #cfe0ff,25.8vw 22.0vh #fff,92.6vw 98.0vh #fff,23.9vw 49.4vh #fff,62.4vw 56.1vh #a9c8ff,26.4vw 10.4vh #fff,31.3vw 71.6vh #ffd9f0,68.7vw 96.4vh #cfe0ff,15.9vw 62.2vh #ffd9f0,80.5vw 29.4vh #ffd9f0,28.6vw 74.9vh #ffd9f0,23.7vw 24.9vh #a9c8ff,70.6vw 91.7vh #cfe0ff,87.7vw 98.9vh #fff,88.6vw 31.0vh #ffd9f0,51.2vw 67.9vh #fff,16.3vw 86.6vh #ffd9f0,5.3vw 25.4vh #ffd9f0,25.3vw 63.5vh #a9c8ff,71.6vw 32.7vh #a9c8ff,85.6vw 20.5vh #cfe0ff,56.7vw 42.1vh #cfe0ff,62.3vw 83.1vh #cfe0ff,12.5vw 37.7vh #a9c8ff,23.1vw 18.5vh #fff,47.2vw 69.4vh #cfe0ff,26.8vw 27.1vh #a9c8ff,63.1vw 39.7vh #cfe0ff,4.9vw 71.3vh #fff,87.1vw 19.4vh #a9c8ff,73.1vw 99.4vh #fff,40.5vw 90.5vh #ffd9f0,17.1vw 6.7vh #ffd9f0,80.0vw 83.9vh #a9c8ff,22.4vw 72.2vh #ffd9f0,76.5vw 98.1vh #ffd9f0,67.5vw 21.7vh #a9c8ff,80.0vw 14.7vh #cfe0ff,83.4vw 55.6vh #a9c8ff,88.1vw 43.3vh #cfe0ff,32.4vw 1.9vh #cfe0ff,27.4vw 40.0vh #a9c8ff,22.8vw 48.2vh #a9c8ff,55.1vw 55.9vh #cfe0ff,6.4vw 89.3vh #a9c8ff,67.0vw 0.4vh #a9c8ff,48.3vw 99.7vh #cfe0ff,99.2vw 40.9vh #fff,41.5vw 80.7vh #ffd9f0,55.7vw 21.5vh #a9c8ff,27.7vw 93.9vh #cfe0ff,99.4vw 44.3vh #fff,17.6vw 2.7vh #cfe0ff,53.9vw 67.5vh #a9c8ff,35.9vw 75.4vh #a9c8ff,6.3vw 46.6vh #cfe0ff,6.4vw 36.5vh #a9c8ff,81.0vw 79.2vh #ffd9f0,39.9vw 80.3vh #fff,93.6vw 48.2vh #ffd9f0,25.0vw 91.0vh #fff,0.9vw 14.1vh #a9c8ff,38.8vw 36.9vh #a9c8ff,81.1vw 36.5vh #ffd9f0,35.4vw 27.9vh #a9c8ff,59.4vw 26.5vh #cfe0ff,74.2vw 21.1vh #cfe0ff,54.6vw 68.0vh #cfe0ff,34.7vw 15.6vh #a9c8ff,35.0vw 43.1vh #fff,40.0vw 5.2vh #fff,32.1vw 53.7vh #cfe0ff,2.1vw 17.5vh #fff,75.4vw 10.8vh #a9c8ff,43.0vw 96.3vh #cfe0ff,49.9vw 78.0vh #cfe0ff,81.3vw 7.0vh #ffd9f0,94.8vw 32.2vh #cfe0ff,77.8vw 52.5vh #fff,14.8vw 63.5vh #ffd9f0,91.1vw 5.5vh #a9c8ff,88.8vw 85.6vh #ffd9f0,50.5vw 56.8vh #fff,12.1vw 73.9vh #ffd9f0,43.6vw 46.7vh #ffd9f0,50.2vw 37.5vh #fff,51.5vw 3.2vh #ffd9f0,44.7vw 59.3vh #fff,93.2vw 15.2vh #ffd9f0,32.8vw 25.6vh #a9c8ff,18.8vw 46.9vh #ffd9f0,5.2vw 96.8vh #ffd9f0,11.1vw 18.7vh #cfe0ff,82.9vw 79.8vh #a9c8ff,99.4vw 6.5vh #fff,71.2vw 25.1vh #a9c8ff,45.4vw 53.6vh #ffd9f0,19.6vw 28.0vh #cfe0ff,7.4vw 55.5vh #ffd9f0,87.7vw 7.2vh #ffd9f0,85.5vw 77.1vh #fff,79.7vw 15.2vh #a9c8ff,17.9vw 33.4vh #a9c8ff,95.5vw 22.0vh #a9c8ff,11.7vw 18.2vh #ffd9f0,3.1vw 68.2vh #ffd9f0,90.2vw 7.2vh #cfe0ff,53.2vw 31.6vh #cfe0ff,56.0vw 99.4vh #ffd9f0,1.5vw 34.0vh #a9c8ff,84.5vw 94.6vh #cfe0ff,69.5vw 18.1vh #cfe0ff,17.2vw 58.1vh #fff,12.9vw 11.6vh #a9c8ff,61.0vw 35.8vh #cfe0ff,0.8vw 6.9vh #cfe0ff,73.6vw 36.0vh #a9c8ff,77.0vw 20.0vh #fff,63.1vw 42.5vh #ffd9f0,27.9vw 13.4vh #fff,94.2vw 34.6vh #ffd9f0,23.5vw 57.9vh #a9c8ff,12.3vw 87.7vh #fff,67.7vw 45.5vh #ffd9f0,38.8vw 74.3vh #cfe0ff,44.8vw 6.4vh #ffd9f0,33.3vw 58.4vh #a9c8ff,29.3vw 69.5vh #cfe0ff,1.5vw 37.5vh #a9c8ff,38.8vw 27.8vh #fff,82.1vw 85.0vh #fff,54.6vw 9.9vh #cfe0ff,8.8vw 36.4vh #a9c8ff,3.0vw 59.0vh #a9c8ff,99.0vw 81.6vh #fff,66.8vw 15.6vh #fff,36.2vw 46.5vh #a9c8ff,48.0vw 65.2vh #fff,97.0vw 97.6vh #ffd9f0,43.3vw 23.0vh #fff,99.8vw 6.7vh #ffd9f0,65.6vw 79.0vh #cfe0ff,51.8vw 58.4vh #ffd9f0,37.0vw 14.3vh #ffd9f0,9.6vw 79.5vh #fff,16.7vw 64.9vh #a9c8ff,66.3vw 97.0vh #ffd9f0,77.6vw 12.0vh #ffd9f0,15.6vw 37.1vh #a9c8ff,94.5vw 89.6vh #fff,10.9vw 41.3vh #fff,77.6vw 9.4vh #fff,6.8vw 23.8vh #fff,51.0vw 30.8vh #a9c8ff,77.7vw 24.7vh #ffd9f0,46.6vw 99.0vh #ffd9f0,17.0vw 10.5vh #cfe0ff,85.1vw 10.4vh #cfe0ff,14.4vw 56.4vh #cfe0ff,40.6vw 61.2vh #fff,41.3vw 1.1vh #cfe0ff,79.7vw 11.0vh #ffd9f0,15.7vw 53.1vh #fff,40.5vw 49.3vh #fff,39.0vw 29.9vh #cfe0ff,26.1vw 11.2vh #ffd9f0,32.9vw 48.9vh #cfe0ff;  opacity: .7;  animation: twinkle-b 7s ease-in-out -2s infinite; }
+.stars-near { width: 2px; height: 2px; box-shadow: 56.8vw 50.1vh #fff,39.4vw 29.9vh #a9c8ff,22.0vw 8.4vh #ffd9f0,38.5vw 64.9vh #a9c8ff,45.1vw 5.0vh #fff,16.3vw 38.2vh #a9c8ff,40.0vw 22.3vh #fff,71.3vw 3.2vh #a9c8ff,48.4vw 23.0vh #ffd9f0,73.3vw 37.3vh #fff,0.7vw 59.3vh #cfe0ff,36.6vw 59.8vh #a9c8ff,84.0vw 21.0vh #fff,31.5vw 49.8vh #a9c8ff,5.3vw 9.3vh #a9c8ff,58.9vw 80.8vh #ffd9f0,64.7vw 37.3vh #fff,28.6vw 68.0vh #fff,39.7vw 22.5vh #a9c8ff,32.8vw 31.7vh #cfe0ff,78.8vw 64.2vh #fff,100.0vw 49.0vh #ffd9f0,62.5vw 55.2vh #a9c8ff,63.9vw 2.2vh #cfe0ff,58.0vw 0.6vh #ffd9f0,41.8vw 68.0vh #fff,17.2vw 8.3vh #cfe0ff,37.8vw 44.8vh #ffd9f0,80.1vw 44.5vh #fff,83.5vw 95.7vh #a9c8ff,66.6vw 54.8vh #fff,70.3vw 39.7vh #fff,92.2vw 21.1vh #ffd9f0,32.4vw 14.0vh #fff,15.5vw 27.4vh #ffd9f0,3.1vw 43.2vh #ffd9f0,20.0vw 70.3vh #ffd9f0,49.4vw 69.0vh #ffd9f0,51.2vw 48.2vh #cfe0ff,77.3vw 32.4vh #fff,34.6vw 16.4vh #a9c8ff,37.7vw 80.3vh #ffd9f0,45.3vw 58.9vh #ffd9f0,35.8vw 58.4vh #ffd9f0,70.4vw 39.6vh #fff,69.7vw 23.4vh #a9c8ff,35.1vw 41.1vh #fff,25.7vw 6.4vh #a9c8ff,37.8vw 71.6vh #ffd9f0,90.8vw 6.5vh #cfe0ff,97.6vw 91.0vh #ffd9f0,38.7vw 11.8vh #cfe0ff,75.3vw 10.2vh #a9c8ff,50.1vw 15.0vh #a9c8ff,56.8vw 55.2vh #a9c8ff,49.0vw 44.7vh #a9c8ff,80.6vw 9.8vh #cfe0ff,21.8vw 19.9vh #a9c8ff,12.1vw 76.5vh #cfe0ff,89.9vw 92.4vh #a9c8ff,36.4vw 95.1vh #a9c8ff,60.8vw 83.1vh #a9c8ff,11.0vw 35.8vh #cfe0ff,53.7vw 25.4vh #a9c8ff,28.6vw 56.1vh #a9c8ff,48.5vw 27.3vh #a9c8ff,79.4vw 94.3vh #cfe0ff,87.4vw 16.0vh #cfe0ff,60.9vw 54.4vh #cfe0ff,53.5vw 66.0vh #a9c8ff,30.6vw 42.7vh #a9c8ff,65.2vw 54.3vh #ffd9f0,45.3vw 37.0vh #cfe0ff,94.4vw 50.6vh #a9c8ff,88.6vw 7.5vh #fff,57.5vw 92.7vh #fff,30.2vw 0.3vh #fff,19.5vw 36.7vh #a9c8ff,87.2vw 6.1vh #fff,14.1vw 41.3vh #cfe0ff,98.3vw 68.5vh #fff,43.7vw 67.9vh #fff,52.7vw 35.4vh #ffd9f0,92.5vw 88.0vh #fff,41.7vw 48.6vh #fff,69.3vw 3.0vh #fff,13.5vw 30.0vh #a9c8ff,21.9vw 27.3vh #cfe0ff,97.6vw 95.0vh #cfe0ff,85.9vw 93.5vh #fff,60.9vw 79.5vh #a9c8ff,93.3vw 8.6vh #cfe0ff,95.9vw 3.2vh #fff,29.8vw 30.1vh #fff,41.4vw 14.9vh #cfe0ff,68.8vw 52.0vh #fff,0.1vw 6.8vh #cfe0ff,97.5vw 83.3vh #ffd9f0,35.1vw 21.9vh #ffd9f0,1.5vw 77.0vh #a9c8ff; opacity: .85; animation: twinkle-c 9s ease-in-out -4s infinite; }
+.stars-band { box-shadow: 96.6vw 10.1vh #ffd9f0,61.5vw 40.0vh #a9c8ff,2.3vw 97.9vh #a9c8ff,83.1vw 6.7vh #a9c8ff,65.0vw 35.3vh #fff,60.0vw 35.4vh #ffd9f0,24.5vw 81.0vh #dfeaff,88.6vw 13.9vh #cfe0ff,44.3vw 40.7vh #bcd6ff,14.9vw 82.2vh #fff,37.8vw 58.0vh #dfeaff,7.1vw 88.2vh #fff,5.8vw 88.5vh #dfeaff,37.9vw 69.1vh #a9c8ff,46.6vw 54.7vh #fff,9.0vw 84.1vh #dfeaff,14.9vw 93.1vh #fff,6.4vw 92.9vh #bcd6ff,40.4vw 64.0vh #dfeaff,52.1vw 42.8vh #fff,49.3vw 46.1vh #bcd6ff,66.4vw 19.7vh #dfeaff,16.8vw 83.9vh #dfeaff,86.8vw 4.0vh #dfeaff,33.3vw 69.0vh #fff,83.6vw 17.1vh #bcd6ff,2.1vw 92.2vh #bcd6ff,61.7vw 32.9vh #dfeaff,86.3vw 17.0vh #a9c8ff,96.3vw 5.4vh #cfe0ff,58.7vw 39.7vh #dfeaff,65.7vw 44.5vh #fff,45.3vw 51.4vh #bcd6ff,64.1vw 30.2vh #a9c8ff,14.4vw 91.9vh #ffd9f0,31.3vw 76.0vh #dfeaff,78.8vw 27.1vh #fff,98.3vw 5.1vh #fff,30.5vw 67.7vh #fff,27.4vw 65.2vh #fff,8.7vw 89.8vh #bcd6ff,76.5vw 25.5vh #fff,37.6vw 58.0vh #a9c8ff,8.1vw 90.3vh #bcd6ff,65.5vw 30.8vh #cfe0ff,78.4vw 23.1vh #ffd9f0,38.6vw 52.7vh #fff,79.3vw 25.4vh #a9c8ff,58.9vw 40.5vh #fff,17.9vw 81.3vh #cfe0ff,17.3vw 92.0vh #fff,77.3vw 23.0vh #dfeaff,4.5vw 97.8vh #fff,97.3vw 6.4vh #fff,55.1vw 51.7vh #fff,46.0vw 60.6vh #fff,84.0vw 21.9vh #cfe0ff,67.5vw 30.5vh #dfeaff,60.3vw 43.8vh #ffd9f0,51.4vw 64.9vh #bcd6ff,73.6vw 38.0vh #dfeaff,14.0vw 86.6vh #bcd6ff,69.8vw 19.2vh #bcd6ff,94.0vw 10.8vh #dfeaff,31.0vw 75.6vh #cfe0ff,49.1vw 51.3vh #ffd9f0,86.4vw 10.9vh #dfeaff,45.1vw 57.4vh #ffd9f0,67.6vw 21.4vh #ffd9f0,89.6vw 15.2vh #cfe0ff,71.0vw 35.9vh #dfeaff,47.9vw 55.7vh #fff,75.0vw 6.7vh #a9c8ff,60.0vw 34.8vh #a9c8ff,80.8vw 22.9vh #cfe0ff,93.5vw 9.0vh #dfeaff,92.7vw 16.1vh #bcd6ff,20.6vw 77.2vh #dfeaff,73.6vw 25.7vh #ffd9f0,21.5vw 72.7vh #fff,16.5vw 94.2vh #fff,25.2vw 65.4vh #a9c8ff,81.9vw 16.1vh #a9c8ff,12.2vw 74.3vh #dfeaff,44.4vw 64.3vh #dfeaff,12.5vw 80.2vh #fff,56.0vw 43.1vh #a9c8ff,34.1vw 64.9vh #a9c8ff,57.1vw 48.2vh #cfe0ff,40.8vw 61.1vh #fff,50.6vw 42.8vh #ffd9f0,20.5vw 80.6vh #fff,26.3vw 76.3vh #fff,64.0vw 40.2vh #fff,48.2vw 50.6vh #bcd6ff,32.8vw 66.8vh #a9c8ff,75.2vw 23.7vh #cfe0ff,83.9vw 15.0vh #bcd6ff,82.3vw 19.8vh #a9c8ff,26.5vw 79.1vh #cfe0ff,62.2vw 44.6vh #ffd9f0,21.2vw 85.8vh #bcd6ff,20.8vw 77.1vh #cfe0ff,82.3vw 18.1vh #ffd9f0,41.2vw 64.8vh #fff,79.9vw 14.7vh #dfeaff,53.7vw 43.3vh #fff,55.9vw 41.2vh #fff,86.8vw 16.3vh #fff,88.4vw 3.4vh #fff,64.2vw 31.5vh #ffd9f0,78.6vw 22.3vh #cfe0ff,38.5vw 64.0vh #a9c8ff,3.8vw 94.4vh #cfe0ff,30.6vw 81.9vh #ffd9f0,71.2vw 35.0vh #bcd6ff,84.2vw 14.7vh #dfeaff,51.6vw 44.9vh #fff,27.9vw 66.1vh #bcd6ff,78.3vw 22.4vh #a9c8ff,31.2vw 80.4vh #fff,45.2vw 48.7vh #bcd6ff,56.4vw 38.7vh #ffd9f0,9.0vw 86.6vh #fff,96.3vw 10.7vh #fff,10.4vw 83.7vh #ffd9f0,57.0vw 44.1vh #fff,34.6vw 71.4vh #fff,66.4vw 42.0vh #ffd9f0,58.9vw 38.9vh #dfeaff,18.8vw 70.1vh #dfeaff,48.2vw 58.1vh #bcd6ff,31.7vw 58.8vh #fff,63.0vw 39.8vh #cfe0ff,95.3vw 1.6vh #dfeaff,23.4vw 85.7vh #cfe0ff,76.1vw 25.6vh #bcd6ff,67.4vw 30.6vh #dfeaff,17.6vw 68.7vh #a9c8ff,77.6vw 27.5vh #a9c8ff,58.9vw 26.0vh #fff,92.4vw 9.3vh #dfeaff,23.4vw 73.9vh #ffd9f0,66.4vw 42.3vh #a9c8ff,90.8vw 7.2vh #cfe0ff,74.3vw 20.2vh #dfeaff,69.5vw 38.8vh #dfeaff,68.1vw 35.7vh #fff,6.0vw 88.2vh #fff,27.2vw 78.9vh #fff,38.6vw 61.2vh #fff,63.1vw 32.5vh #fff,46.1vw 50.8vh #cfe0ff,44.9vw 53.4vh #fff,86.9vw 17.3vh #ffd9f0,23.7vw 72.1vh #cfe0ff,75.1vw 23.6vh #bcd6ff,10.8vw 91.9vh #fff,22.8vw 73.8vh #dfeaff,1.3vw 100.0vh #bcd6ff,20.4vw 84.0vh #dfeaff,54.6vw 57.9vh #bcd6ff,40.7vw 67.0vh #fff,9.7vw 95.5vh #fff,36.6vw 60.5vh #a9c8ff,53.6vw 48.8vh #ffd9f0,75.4vw 30.0vh #fff,91.4vw 13.9vh #a9c8ff,24.4vw 78.3vh #dfeaff,95.2vw 9.9vh #bcd6ff,38.0vw 65.7vh #fff,71.9vw 29.7vh #fff,64.8vw 21.4vh #a9c8ff,96.2vw 4.8vh #fff,16.6vw 79.3vh #cfe0ff,75.1vw 18.7vh #fff,31.6vw 68.4vh #cfe0ff,21.6vw 67.3vh #fff,29.7vw 67.6vh #cfe0ff,57.2vw 45.3vh #fff,33.9vw 66.3vh #fff,60.1vw 33.0vh #fff,65.7vw 45.0vh #cfe0ff,83.1vw 22.8vh #ffd9f0,94.8vw 1.9vh #ffd9f0,19.0vw 74.1vh #fff,72.8vw 37.5vh #cfe0ff,9.9vw 80.0vh #ffd9f0,45.8vw 62.6vh #fff,70.7vw 27.2vh #a9c8ff,10.6vw 96.7vh #bcd6ff,28.9vw 74.1vh #bcd6ff,40.0vw 69.3vh #fff,50.0vw 58.8vh #bcd6ff,6.1vw 90.5vh #fff,64.9vw 38.5vh #a9c8ff,61.0vw 31.2vh #fff,64.8vw 36.3vh #fff,63.4vw 35.9vh #ffd9f0,86.0vw 1.7vh #cfe0ff,51.6vw 51.9vh #fff,40.9vw 75.9vh #dfeaff,30.0vw 64.1vh #bcd6ff,26.8vw 80.9vh #ffd9f0,67.2vw 33.3vh #fff,5.4vw 93.4vh #dfeaff,11.5vw 90.6vh #dfeaff,34.1vw 62.0vh #cfe0ff,72.9vw 30.8vh #cfe0ff,18.0vw 95.1vh #dfeaff,72.7vw 23.4vh #a9c8ff,44.0vw 53.9vh #fff,37.6vw 72.9vh #fff,54.9vw 50.1vh #ffd9f0,88.1vw 11.0vh #fff,94.3vw 11.9vh #a9c8ff,95.8vw 10.5vh #fff,44.7vw 61.7vh #cfe0ff,25.6vw 65.9vh #bcd6ff,95.4vw 4.4vh #bcd6ff,52.8vw 56.8vh #cfe0ff,16.5vw 70.7vh #fff,71.7vw 25.9vh #ffd9f0,86.0vw 17.1vh #fff,12.9vw 91.2vh #bcd6ff,39.3vw 61.8vh #cfe0ff,44.2vw 70.4vh #fff,26.7vw 81.2vh #fff,57.3vw 39.7vh #bcd6ff; opacity: .8; animation: twinkle-b 6s ease-in-out -3s infinite; }
+.stars-glow { width: 3px; height: 3px; box-shadow: 4.8vw 37.0vh 2px #c9b8ff,52.1vw 35.2vh 2px #9fd0ff,93.1vw 41.4vh 2px #9fd0ff,15.0vw 25.3vh 2px #ffc6e8,22.1vw 91.9vh 2px #9fd0ff,23.8vw 65.4vh 2px #c9b8ff,59.6vw 57.4vh 2px #fff,18.5vw 23.2vh 2px #c9b8ff,51.0vw 73.9vh 2px #9fd0ff,67.4vw 79.0vh 2px #fff,7.9vw 76.3vh 2px #9fd0ff,44.2vw 4.5vh 2px #9fd0ff,37.1vw 35.6vh 2px #fff,99.0vw 38.7vh 2px #9fd0ff,41.9vw 67.0vh 2px #9fd0ff,33.8vw 79.0vh 2px #ffc6e8,90.7vw 56.2vh 2px #fff,47.6vw 81.8vh 2px #fff,5.2vw 3.3vh 2px #fff,42.5vw 15.8vh 2px #fff,20.6vw 87.8vh 2px #9fd0ff,93.1vw 34.2vh 2px #9fd0ff,14.2vw 71.5vh 2px #fff,19.3vw 13.6vh 2px #9fd0ff,88.3vw 72.6vh 2px #ffc6e8,36.7vw 72.7vh 2px #c9b8ff,14.6vw 87.1vh 2px #9fd0ff,72.5vw 67.6vh 2px #fff,30.7vw 18.3vh 2px #fff,27.4vw 52.2vh 2px #ffc6e8,76.2vw 52.7vh 2px #fff,8.1vw 22.3vh 2px #fff,92.2vw 97.6vh 2px #9fd0ff,16.0vw 33.0vh 2px #fff,29.4vw 79.3vh 2px #ffc6e8,35.0vw 99.7vh 2px #ffc6e8,46.5vw 19.1vh 2px #ffc6e8,97.8vw 2.4vh 2px #ffc6e8,54.3vw 28.2vh 2px #fff,17.3vw 73.6vh 2px #9fd0ff; animation: twinkle-glow 4.5s ease-in-out -1s infinite; }
+
+.shooting { position: absolute; width: 140px; height: 2px; border-radius: 2px; opacity: 0; background: linear-gradient(90deg, rgba(255,255,255,0), #cfe6ff 70%, #fff); filter: drop-shadow(0 0 6px #9fd0ff); transform: rotate(-32deg); }
+.shoot-one   { top: 12%; left: 62%; animation: shoot 11s ease-in 2s infinite; }
+.shoot-two   { top: 30%; left: 85%; animation: shoot 15s ease-in 7s infinite; }
+.shoot-three { top: 6%;  left: 35%; animation: shoot 19s ease-in 12s infinite; }
+
+.glow-orb { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px 4px rgba(140, 200, 255, .75); animation: twinkle-glow 3s ease-in-out infinite; }
+.orb-one { left: 18%; top: 25%; }
+.orb-two { right: 17%; bottom: 24%; animation-delay: -1.4s; }
+
+/* ---------- ESCENAS ---------- */
+.scene { z-index: 1; display: grid; place-items: center; padding: clamp(20px, 5vw, 72px); }
+.scene-toggle { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); white-space: nowrap; overflow: hidden; }
+.screen { position: absolute; inset: 0; display: grid; place-items: center; padding: clamp(20px, 5vw, 72px); overflow-y: auto; opacity: 0; visibility: hidden; transform: translateY(14px) scale(.985); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1), visibility .9s; }
+#scene-home:checked ~ .home-screen, #scene-letter:checked ~ .letter-screen { opacity: 1; visibility: visible; transform: none; }
+
+.home-content { position: relative; width: min(100%, 740px); padding: 28px 18px; text-align: center; animation: rise-in 1.2s both; }
+.eyebrow { display: flex; align-items: center; justify-content: center; gap: 13px; color: #a9d0ff; font-size: .65rem; font-weight: 600; letter-spacing: .27em; }
+.eyebrow-line { width: 26px; height: 1px; background: linear-gradient(90deg, transparent, rgba(150, 205, 255, .85)); }
+.eyebrow-line:last-child { transform: rotate(180deg); }
+.pretitle { margin: clamp(34px, 7vh, 64px) 0 14px; color: #d6e5fb; font-size: .95rem; letter-spacing: .08em; }
+h1 { margin: 0; font-family: var(--serif); font-size: clamp(4.2rem, 13vw, 9.7rem); font-weight: 500; line-height: .86; letter-spacing: -.06em; background: linear-gradient(180deg, #fff 25%, #bcdcff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 4px 40px rgba(110, 175, 255, .45)); }
+h1 span { font-style: italic; background: linear-gradient(100deg, #9fd2ff, #e3d2ff 50%, #ffc9e8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.name-line { margin: 22px 0 0; color: #cfe4ff; font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: .11em; text-shadow: 0 0 24px rgba(120, 180, 255, .55); }
+.heart { display: inline-block; margin-left: 4px; color: #ff9fc8; font-family: var(--sans); font-size: .76em; text-shadow: 0 0 14px rgba(255, 130, 190, .8); animation: heartbeat 2s ease-in-out infinite; }
+.intro { margin: 25px auto 29px; color: #c9d9f2; font-size: clamp(.9rem, 2.2vw, 1.05rem); line-height: 1.85; }
+
+.open-button, .replay-button { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 18px; border: 1px solid rgba(160, 210, 255, .5); border-radius: 999px; color: #f2f8ff; background: linear-gradient(135deg, rgba(110, 170, 255, .2), rgba(170, 130, 255, .12)); cursor: pointer; font-family: var(--sans); font-size: .67rem; font-weight: 700; letter-spacing: .17em; backdrop-filter: blur(6px); transition: background .3s, border-color .3s, transform .3s, box-shadow .3s; }
+.open-button { min-width: 210px; padding: 15px 20px; box-shadow: 0 0 36px rgba(90, 160, 255, .3), inset 0 0 18px rgba(255, 255, 255, .06); animation: button-glow 3.2s ease-in-out infinite alternate; }
+.open-button:hover, .replay-button:hover { transform: translateY(-2px); border-color: rgba(205, 232, 255, .95); background: linear-gradient(135deg, rgba(120, 180, 255, .36), rgba(190, 140, 255, .24)); box-shadow: 0 10px 34px rgba(90, 160, 255, .42); }
+.open-button:focus-visible, .replay-button:focus-visible { outline: 2px solid #cfe6ff; outline-offset: 3px; }
+.button-arrow { font-size: 1rem; color: #bfe0ff; }
+.forever { margin: 25px 0 0; color: #c9d9f2; font-family: var(--serif); font-size: .96rem; font-style: italic; letter-spacing: .07em; }
+.forever span { margin-left: 4px; color: #ff9fc8; font-size: 1.25rem; }
+
+.tiny-star { position: absolute; color: #e6f2ff; text-shadow: 0 0 14px #8fc4ff, 0 0 26px #6aa8ff; animation: twinkle-glow 3.5s ease-in-out infinite; }
+.star-a { top: 21%; left: 12%; font-size: 1rem; }
+.star-b { top: 33%; right: 11%; font-size: 1.3rem; animation-delay: -1s; }
+.star-c { bottom: 17%; left: 23%; font-size: .8rem; animation-delay: -2s; }
+.bottom-note { position: absolute; bottom: max(20px, env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 13px; color: rgba(190, 215, 250, .62); font-size: .55rem; font-weight: 600; letter-spacing: .22em; }
+.bottom-sparkle { color: #fff; font-size: .95rem; }
+
+/* ---------- CARTA ---------- */
+.letter-screen { padding-block: clamp(38px, 7vh, 80px) clamp(56px, 9vh, 90px); }
+.letter-layout { display: grid; grid-template-columns: minmax(300px, 1.08fr) minmax(230px, .72fr); align-items: center; gap: clamp(12px, 5vw, 76px); width: min(100%, 1020px); }
+.letter-copy { position: relative; z-index: 1; animation: rise-in 1s both; }
+.letter-eyebrow { justify-content: flex-start; font-size: .59rem; }
+.letter-eyebrow .eyebrow-line:last-child { display: none; }
+.letter-copy h2 { margin: 23px 0 25px; font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 500; line-height: .99; letter-spacing: -.045em; background: linear-gradient(180deg, #fff 20%, #b5d8ff); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 4px 28px rgba(110, 175, 255, .4)); }
+.letter-copy h2 em { background: linear-gradient(100deg, #9fd2ff, #e3d2ff 55%, #ffc9e8); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 500; }
+.title-heart { display: inline-block; margin-left: 13px; color: #ff9fc8; font-family: var(--sans); font-size: .35em; vertical-align: top; -webkit-text-fill-color: #ff9fc8; animation: heartbeat 2s ease-in-out infinite; }
+.letter-card { position: relative; padding: clamp(22px, 3.3vw, 36px); border: 1px solid rgba(170, 215, 255, .3); border-radius: 18px; background: linear-gradient(145deg, rgba(150, 200, 255, .17), rgba(120, 130, 255, .05)); box-shadow: 0 20px 70px rgba(2, 8, 40, .45), 0 0 50px rgba(90, 160, 255, .12), inset 0 1px rgba(255, 255, 255, .14); backdrop-filter: blur(14px); }
+.letter-card::before { position: absolute; inset: 7px; border: 1px solid rgba(190, 225, 255, .1); border-radius: 12px; content: ""; pointer-events: none; }
+.card-topline { display: flex; justify-content: space-between; margin-bottom: 25px; color: #a9d0ff; font-size: .56rem; font-weight: 700; letter-spacing: .17em; }
+.card-topline span:last-child { color: #d3e8ff; }
+.letter-card p { position: relative; margin: 0 0 17px; color: #e9f1fc; font-size: clamp(.87rem, 1.35vw, .99rem); line-height: 1.85; }
+.letter-card p:first-of-type { color: #fff; font-family: var(--serif); font-size: 1.14rem; font-weight: 600; }
+.letter-card .signoff { margin: 23px 0 0; color: #cfe2ff; font-family: var(--serif); font-style: italic; }
+.signoff span { color: #ff9fc8; font-style: normal; }
+.replay-button { margin-top: 19px; padding: 12px 19px; font-size: .58rem; }
+
+/* ---------- RAMO ---------- */
+.bouquet-wrap { position: relative; display: grid; justify-items: center; animation: rise-in 1.2s .2s both; }
+.bouquet-halo { position: absolute; top: 4%; width: 92%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(120, 190, 255, .5), rgba(150, 120, 255, .2) 45%, transparent 70%); filter: blur(22px); animation: breathe 6s ease-in-out infinite alternate; }
+.bouquet { position: relative; width: min(100%, 390px); height: auto; overflow: visible; filter: drop-shadow(0 18px 30px rgba(2, 8, 40, .5)); animation: float 7s ease-in-out infinite; }
+.spark { transform-box: fill-box; transform-origin: center; animation: twinkle-glow 3s ease-in-out infinite; }
+.s2 { animation-delay: -1s; } .s3 { animation-delay: -2s; } .s4 { animation-delay: -.5s; }
+.bouquet-caption { position: relative; margin: 8px 0 0; color: #cfe2ff; font-family: var(--serif); font-size: .95rem; font-style: italic; letter-spacing: .08em; }
+.bouquet-caption span { color: #bcdcff; }
+
+/* ---------- ANIMACIONES ---------- */
+@keyframes twinkle-a { 0%, 100% { opacity: .15; } 50% { opacity: .9; } }
+@keyframes twinkle-b { 0%, 100% { opacity: .85; } 45% { opacity: .1; } }
+@keyframes twinkle-c { 0%, 100% { opacity: .2; } 55% { opacity: 1; } }
+@keyframes twinkle-glow { 0%, 100% { opacity: .25; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.15); } }
+@keyframes shoot { 0% { opacity: 0; translate: 0 0; } 2% { opacity: 1; } 7% { opacity: 0; translate: -42vw 26vw; } 100% { opacity: 0; translate: -42vw 26vw; } }
+@keyframes aurora-drift { from { transform: translate3d(-3%, -2%, 0) scale(1); } to { transform: translate3d(3%, 3%, 0) scale(1.08); } }
+@keyframes breathe { from { opacity: .22; scale: .94; } to { opacity: .42; scale: 1.08; } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.22); } 30% { transform: scale(1); } 45% { transform: scale(1.14); } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-.6deg); } 50% { transform: translateY(-10px) rotate(.8deg); } }
+@keyframes button-glow { from { box-shadow: 0 0 22px rgba(90, 160, 255, .22), inset 0 0 18px rgba(255, 255, 255, .05); } to { box-shadow: 0 0 46px rgba(110, 180, 255, .5), inset 0 0 18px rgba(255, 255, 255, .09); } }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 820px) {
+  .letter-screen { place-items: start center; }
+  .letter-layout { grid-template-columns: 1fr; gap: 32px; }
+  .bouquet-wrap { order: -1; }
+  .bouquet { width: min(78%, 310px); }
+  .letter-copy h2 { margin-top: 18px; }
+  .bottom-note { position: static; margin-top: 28px; grid-column: 1; }
+  .letter-screen { grid-auto-rows: max-content; }
+}
+@media (max-width: 480px) {
+  .eyebrow { gap: 9px; letter-spacing: .2em; }
+  .star-a { left: 4%; } .star-b { right: 4%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .shooting { display: none; }
+}

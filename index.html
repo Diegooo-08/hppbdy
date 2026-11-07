@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b24">
+  <title>Felicidadesss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cosmos" aria-hidden="true">
+    <div class="aurora"></div>
+    <div class="nebula nebula-one"></div>
+    <div class="nebula nebula-two"></div>
+    <div class="nebula nebula-three"></div>
+    <div class="stars stars-far"></div>
+    <div class="stars stars-mid"></div>
+    <div class="stars stars-near"></div>
+    <div class="stars stars-band"></div>
+    <div class="stars stars-glow"></div>
+    <span class="shooting shoot-one"></span>
+    <span class="shooting shoot-two"></span>
+    <span class="shooting shoot-three"></span>
+    <div class="glow-orb orb-one"></div>
+    <div class="glow-orb orb-two"></div>
+    <div class="horizon"></div>
+  </div>
+
+  <main class="scene">
+    <!-- PORTADA: al presionar el botón, el radio activa la carta de abajo. -->
+    <input class="scene-toggle" type="radio" name="scene" id="scene-home" checked>
+    <input class="scene-toggle" type="radio" name="scene" id="scene-letter">
+
+    <section class="screen home-screen" aria-labelledby="home-title">
+      <div class="home-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> FELICES 18 NIÑAAA <span class="eyebrow-line"></span></div>
+        <div class="tiny-star star-a">✦</div>
+        <div class="tiny-star star-b">✧</div>
+        <div class="tiny-star star-c">✦</div>
+        <p class="pretitle">Eres alguien muy especial para mi</p>
+        <h1 id="home-title">Happy<br><span>Birthday</span></h1>
+        <p class="name-line">Miryam</span></p>
+        <p class="intro">Te aprecio mucho<br>Espero que te guste.</p>
+        <label class="open-button" for="scene-letter">
+          <span>ABRE TU DETALLEE</span><span class="button-arrow">↗</span>
+        </label>
+        <p class="forever">07/NOVIEMBRE/2026</p>
+      </div>
+      <div class="bottom-note"><span>CON MUCHO ESFUERZO</span><span class="bottom-sparkle">✧</span><span>PARA TI MIRYAM</span></div>
+    </section>
+
+    <section class="screen letter-screen" aria-labelledby="letter-title">
+      <div class="letter-layout">
+        <div class="letter-copy">
+          <p class="eyebrow letter-eyebrow"><span class="eyebrow-line"></span> DE MI PA UTE'</p>
+          <h2 id="letter-title">Felices 18<br><em>Lic.Miryam Aracely</em><span class="title-heart">♥</span></h2>
+          <article class="letter-card">
+            <div class="card-topline"><span>CON MUCHO CARIÑO</span><span>✦</span></div>
+            <p>Feliz cumpleaños, Miryaaaammm!</p>
+            <p>Un día como hoy hace 18 años el mundo se volvió un poco más bonito gracias a tu llegada. Espero que te la pases muy bonito en este día porque es TUYO!!</p>
+            <p>Sabes que te quiero mucho y que siempre contarás conmigo para lo que sea. Espero que nunca te falten motivos para sonreír, ya que tu sonrisa es hermosa y me encanta.</p>
+            <p class="signoff">escrito por yito.</p>
+          </article>
+          <label class="replay-button" for="scene-home"><span>↶</span> VOLVER A VER</label>
+        </div>
+
+        <div class="bouquet-wrap" aria-label="Ilustración de un ramo de lirios y peonías">
+          <div class="bouquet-halo"></div>
+          <svg class="bouquet" viewBox="0 0 360 440" role="img" aria-labelledby="bouquet-title">
+            <title id="bouquet-title">Ramo de lirios blancos y peonías rosadas</title>
+            <defs>
+              <radialGradient id="pn1" cx=".5" cy=".75" r=".85"><stop stop-color="#ffe6f0"/><stop offset=".6" stop-color="#f7a3c6"/><stop offset="1" stop-color="#dc649c"/></radialGradient>
+              <radialGradient id="pn2" cx=".5" cy=".75" r=".85"><stop stop-color="#ffdcea"/><stop offset="1" stop-color="#ec86b4"/></radialGradient>
+              <radialGradient id="pn3" cx=".5" cy=".75" r=".85"><stop stop-color="#ffc9de"/><stop offset="1" stop-color="#e2699c"/></radialGradient>
+              <linearGradient id="lp" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#f3a6c8"/><stop offset=".5" stop-color="#fff2f8"/><stop offset="1" stop-color="#fff"/></linearGradient>
+              <radialGradient id="hy" cx=".35" cy=".3" r=".8"><stop stop-color="#e3f0ff"/><stop offset=".5" stop-color="#6fa6ff"/><stop offset="1" stop-color="#3a66dc"/></radialGradient>
+              <linearGradient id="lg" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#2f6f5a"/><stop offset="1" stop-color="#9ad2ae"/></linearGradient>
+              <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7e6ff"/><stop offset="1" stop-color="#7f9be8"/></linearGradient>
+              <linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#bfd1ff"/></linearGradient>
+              <linearGradient id="bow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffa6cc"/><stop offset="1" stop-color="#d9508a"/></linearGradient>
+              <filter id="flower-shadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#030a2a" flood-opacity=".35"/></filter>
+              <path id="lpet" d="M0 0 C-17 -16 -15 -46 0 -68 C15 -46 17 -16 0 0Z"/>
+              <path id="sp" d="M0 -9 Q1.5 -1.5 9 0 Q1.5 1.5 0 9 Q-1.5 1.5 -9 0 Q-1.5 -1.5 0 -9Z" fill="#fff"/>
+              <g id="leaf"><path d="M0 0 C-15 -14 -13 -42 0 -64 C13 -42 15 -14 0 0Z" fill="url(#lg)" stroke="#2f6050" stroke-width="1"/><path d="M0 -4V-52" stroke="#2f6050" stroke-width="1" opacity=".5"/></g>
+              <g id="lily">
+                <g fill="url(#lp)" stroke="#efb2cf" stroke-width="1" opacity=".9"><use href="#lpet" transform="rotate(30)"/><use href="#lpet" transform="rotate(150)"/><use href="#lpet" transform="rotate(270)"/></g>
+                <g fill="url(#lp)" stroke="#f0b3cf" stroke-width="1"><use href="#lpet"/><use href="#lpet" transform="rotate(120)"/><use href="#lpet" transform="rotate(240)"/></g>
+                <g stroke="#c9873f" stroke-width="1.6" stroke-linecap="round"><path d="M0 0L-12 -26M0 0L-4 -30M0 0L6 -29M0 0L14 -24"/></g>
+                <g fill="#b9672c"><circle cx="-12" cy="-26" r="2.6"/><circle cx="-4" cy="-30" r="2.6"/><circle cx="6" cy="-29" r="2.6"/><circle cx="14" cy="-24" r="2.6"/></g>
+              </g>
+              <g id="peony">
+                <g fill="url(#pn1)" stroke="#d96b9f" stroke-width="1"><ellipse cy="-22" rx="16" ry="24"/><ellipse cy="-22" rx="16" ry="24" transform="rotate(45)"/><ellipse cy="-22" rx="16" ry="24" transform="rotate(90)"/><ellipse cy="-22" rx="16" ry="24" transform="rotate(135)"/><ellipse cy="-22" rx="16" ry="24" transform="rotate(180)"/><ellipse cy="-22" rx="16" ry="24" transform="rotate(225)"/><ellipse cy="-22" rx="16" ry="24" transform="rotate(270)"/><ellipse cy="-22" rx="16" ry="24" transform="rotate(315)"/></g>
+                <g fill="url(#pn2)" stroke="#e17aa9" stroke-width="1"><ellipse cy="-15" rx="12" ry="17" transform="rotate(20)"/><ellipse cy="-15" rx="12" ry="17" transform="rotate(80)"/><ellipse cy="-15" rx="12" ry="17" transform="rotate(140)"/><ellipse cy="-15" rx="12" ry="17" transform="rotate(200)"/><ellipse cy="-15" rx="12" ry="17" transform="rotate(260)"/><ellipse cy="-15" rx="12" ry="17" transform="rotate(320)"/></g>
+                <g fill="url(#pn3)" stroke="#d96b9f" stroke-width="1"><ellipse cy="-8" rx="8" ry="11"/><ellipse cy="-8" rx="8" ry="11" transform="rotate(72)"/><ellipse cy="-8" rx="8" ry="11" transform="rotate(144)"/><ellipse cy="-8" rx="8" ry="11" transform="rotate(216)"/><ellipse cy="-8" rx="8" ry="11" transform="rotate(288)"/></g>
+                <circle r="3.5" fill="#f6c36a"/>
+              </g>
+              <g id="hydr"><g fill="url(#hy)"><circle r="9"/><circle cx="-12" cy="-6" r="8"/><circle cx="12" cy="-6" r="8"/><circle cx="-7" cy="10" r="8"/><circle cx="8" cy="10" r="8"/><circle cy="-15" r="8"/></g><g fill="#fff" opacity=".85"><circle r="1.7"/><circle cx="-12" cy="-6" r="1.5"/><circle cx="12" cy="-6" r="1.5"/><circle cx="-7" cy="10" r="1.5"/><circle cx="8" cy="10" r="1.5"/><circle cy="-15" r="1.5"/></g></g>
+            </defs>
+            <!-- Gypsophila y follaje -->
+            <g fill="none" stroke-linecap="round"><path d="M172 332 Q80 254 36 158" stroke="#8fbfa6" stroke-width="1.6"/><path d="M188 332 Q290 254 328 150" stroke="#8fbfa6" stroke-width="1.6"/><path d="M176 332 Q138 190 126 98" stroke="#8fbfa6" stroke-width="1.6"/><path d="M184 332 Q218 190 240 96" stroke="#8fbfa6" stroke-width="1.6"/>
+              <g stroke="#fff" stroke-width="5" stroke-dasharray="0 10"><path d="M36 158 Q22 138 30 116 M36 158 Q50 140 46 120"/><path d="M328 150 Q342 130 334 108 M328 150 Q314 132 318 112"/><path d="M126 98 Q112 78 120 58 M126 98 Q140 80 136 62"/><path d="M240 96 Q226 76 234 56 M240 96 Q254 78 250 58"/></g></g>
+            <use href="#leaf" transform="translate(172 318) rotate(-78) scale(1.15)"/><use href="#leaf" transform="translate(188 318) rotate(78) scale(1.15)"/><use href="#leaf" transform="translate(174 300) rotate(-48) scale(1.25)"/><use href="#leaf" transform="translate(186 300) rotate(48) scale(1.25)"/><use href="#leaf" transform="translate(178 290) rotate(-22) scale(1.1)"/><use href="#leaf" transform="translate(182 290) rotate(22) scale(1.1)"/>
+            <!-- Tallos -->
+            <g fill="none" stroke="#5d9475" stroke-width="4" stroke-linecap="round"><path d="M180 342 Q150 240 92 132"/><path d="M180 342 Q210 240 268 128"/><path d="M180 342 Q178 220 180 84"/><path d="M180 342 Q180 270 180 196"/><path d="M178 342 Q130 290 116 222"/><path d="M182 342 Q232 290 244 220"/><path d="M178 342 Q110 290 58 208"/><path d="M182 342 Q250 290 302 204"/></g>
+            <!-- Hortensias azules -->
+            <g filter="url(#flower-shadow)"><use href="#hydr" transform="translate(58 208) scale(1.05)"/><use href="#hydr" transform="translate(302 204) scale(1.05)"/><use href="#hydr" transform="translate(142 150) scale(.8)"/><use href="#hydr" transform="translate(220 152) scale(.8)"/></g>
+            <!-- Lirios -->
+            <use class="lily lily-left" href="#lily" transform="translate(92 132) scale(.95)" filter="url(#flower-shadow)"/>
+            <use class="lily lily-right" href="#lily" transform="translate(268 128) scale(.9) rotate(12)" filter="url(#flower-shadow)"/>
+            <use class="lily lily-top" href="#lily" transform="translate(180 86) scale(.78) rotate(-6)" filter="url(#flower-shadow)"/>
+            <!-- Peonías -->
+            <use class="peony peony-one" href="#peony" transform="translate(180 196) scale(1.18)" filter="url(#flower-shadow)"/>
+            <use class="peony peony-two" href="#peony" transform="translate(116 224) scale(.88) rotate(15)" filter="url(#flower-shadow)"/>
+            <use class="peony peony-three" href="#peony" transform="translate(244 222) scale(.88) rotate(-15)" filter="url(#flower-shadow)"/>
+            <!-- Papel y lazo -->
+            <path d="M66 252 Q180 300 294 250 L236 376 Q180 400 124 376Z" fill="url(#p1)" stroke="#e1ebff" stroke-width="2"/>
+            <path d="M66 252 Q150 322 182 394 Q150 390 124 376Z" fill="url(#p2)" opacity=".92"/>
+            <path d="M92 276 Q180 312 268 274" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>
+            <path d="M180 354 C150 324 116 342 132 364 C146 376 170 364 180 354Z M180 354 C210 324 244 342 228 364 C214 376 190 364 180 354Z" fill="url(#bow)" stroke="#ffc4de" stroke-width="1.5"/>
+            <path d="M176 362 Q156 392 138 406 L160 410 Q172 392 182 368Z M184 362 Q204 392 222 406 L200 410 Q188 392 178 368Z" fill="url(#bow)" stroke="#ffc4de" stroke-width="1.5"/>
+            <circle cx="180" cy="357" r="8" fill="#e65f98" stroke="#ffc4de" stroke-width="1.5"/>
+            <use class="spark" href="#sp" transform="translate(46 90)"/><use class="spark s2" href="#sp" transform="translate(318 74) scale(.8)"/><use class="spark s3" href="#sp" transform="translate(300 300) scale(.6)"/><use class="spark s4" href="#sp" transform="translate(52 320) scale(.7)"/>
+          </svg>
+          <p class="bouquet-caption">un ramo pa ti <span>✧</span></p>
+        </div>
+      </div>
+      <div class="bottom-note"><span>CON TODO MI CARIÑO</span><span class="bottom-sparkle">✧</span><span>PARA LA FUTURA LICENCIADA </span></div>
+    </section>
+  </main>
+</body>
+</html>
